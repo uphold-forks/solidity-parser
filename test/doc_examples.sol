@@ -348,3 +348,8 @@ contract TypeIndexSpacing {
   uint [ 7 ] x;
   uint  []  y;
 }
+
+contract GnosisInterpolations {
+    uint constant x = 2;
+    EventFactory constant eventFactory = EventFactory({{EventFactory}});
+}

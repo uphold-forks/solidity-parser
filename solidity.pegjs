@@ -158,8 +158,12 @@ MultiLineCommentNoLineTerminator
 SingleLineComment
   = "//" (!LineTerminator SourceCharacter)*
 
+Interpolation
+  = "{{" __ name:IdentifierName __ "}}" { return name; }
+
 Identifier
   = !ReservedWord name:IdentifierName { return name; }
+  / Interpolation
 
 IdentifierName "identifier"
   = head:IdentifierStart tail:IdentifierPart* {
