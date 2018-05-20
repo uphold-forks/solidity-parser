@@ -34,7 +34,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "mocha": "^2.4.5",
+    "mocha": "^3.5.3",
     "pegjs": "^0.10.0",
     "yargs": "^4.6.0"
   },
