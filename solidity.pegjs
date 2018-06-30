@@ -457,6 +457,7 @@ Zs = [\u0020\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000]
 /* Tokens */
 
 AnonymousToken  = "anonymous"  !IdentifierPart
+ABIEncoderV2Token = "ABIEncoderV2" !IdentifierPart
 AsToken         = "as"         !IdentifierPart
 BreakToken      = "break"      !IdentifierPart
 ClassToken      = "class"      !IdentifierPart
@@ -1133,6 +1134,15 @@ PragmaStatement
       type: "PragmaStatement",
       start_version: "experimental",
       end_version: end_version,
+      start: location().start.offset,
+      end: location().end.offset
+    }
+  }
+  / PragmaToken __ ExperimentalToken __ ABIEncoderV2Token __ EOS {
+    return {
+      type: "PragmaStatement",
+      start_version: "experimental",
+      end_version: "ABIEncoderV2",
       start: location().start.offset,
       end: location().end.offset
     }
