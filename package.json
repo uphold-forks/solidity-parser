@@ -1,6 +1,6 @@
 {
   "name": "solidity-parser-sc",
-  "version": "0.4.10",
+  "version": "0.4.11",
   "description": "PEG.js Solidity parser for Javascript",
   "main": "index.js",
   "scripts": {
