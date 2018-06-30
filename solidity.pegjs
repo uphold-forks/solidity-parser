@@ -1408,7 +1408,7 @@ FunctionDeclaration
     {
       return {
         type: "FunctionDeclaration",
-        name: fnname.name,
+        name: fnname.name || "fallback",
         params: fnname.params,
         modifiers: args,
         returnParams: returns,
@@ -1422,7 +1422,7 @@ FunctionDeclaration
     {
       return {
         type: "FunctionDeclaration",
-        name: fnname.name,
+        name: "constructor",
         params: fnname.params,
         modifiers: args,
         returnParams: returns,
@@ -1436,7 +1436,7 @@ FunctionDeclaration
     {
       return {
         type: "FunctionDeclaration",
-        name: fnname.name,
+        name: fnname.name || "fallback",
         params: fnname.params,
         modifiers: args,
         returnParams: returns,
@@ -1450,7 +1450,7 @@ FunctionDeclaration
     {
       return {
         type: "FunctionDeclaration",
-        name: fnname.name,
+        name: fnname.name || "fallback",
         params: fnname.params,
         modifiers: args,
         returnParams: returns,
