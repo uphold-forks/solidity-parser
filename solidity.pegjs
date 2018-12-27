@@ -183,6 +183,16 @@ IdentifierPart
   = IdentifierStart
   / UnicodeDigit
 
+AddressPayable
+  = "address" __  PayableToken {
+      return {
+        type: "Identifier",
+        name: "address_payable",
+        start: location().start.offset,
+        end: location().end.offset
+      };
+    }
+
 UnicodeLetter
   = Lu
   / Ll
@@ -497,6 +507,7 @@ MinutesToken    = "minutes"    !IdentifierPart
 ModifierToken   = "modifier"   !IdentifierPart
 NewToken        = "new"        !IdentifierPart
 NullToken       = "null"       !IdentifierPart
+PayableToken    = "payable"    !IdentifierPart
 PrivateToken    = "private"    !IdentifierPart
 PragmaToken     = "pragma"     !IdentifierPart
 PublicToken     = "public"     !IdentifierPart
@@ -700,7 +711,7 @@ LeftHandSideExpression
   / Interpolation
 
 Type
-  = literal:(Mapping / Identifier / FunctionToken __ FunctionName __ ModifierArgumentList? __ ReturnsDeclaration? __ IdentifierName?) members:("." Identifier)* parts:(__"[" __ (Expression)? __ "]")*
+  = literal:(Mapping / AddressPayable / Identifier / FunctionToken __ FunctionName __ ModifierArgumentList? __ ReturnsDeclaration? __ IdentifierName?) members:("." Identifier)* parts:(__"[" __ (Expression)? __ "]")*
   {
     return {
       type: "Type",

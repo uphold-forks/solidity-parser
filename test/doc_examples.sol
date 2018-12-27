@@ -578,3 +578,12 @@ library Array256Lib {
     }
   }
 }
+
+contract payableAddress {
+	address payable public alice;
+	function payBob(address payable _bob) public {
+		address payable eve;
+		address payable eve2 = _bob;
+		address eve3;
+	}
+}
